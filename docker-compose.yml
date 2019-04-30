@@ -8,12 +8,12 @@ services:
     command: mongod --smallfiles --logpath=/dev/null # --quiet
   flasksemaphore:
     image: pyflasksemaphore
+    container_name: semaphore-pyflask-docker_flasksemaphore_1
     build:
       context: .
       dockerfile: ./flask.Dockerfile
       cache_from:
         - vrt97/pyflasksemaphore
-      container_name: semaphore-pyflask-docker_flasksemaphore_1
     ports:
       - "5000:5000"
     volumes:
