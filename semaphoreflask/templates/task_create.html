@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% if operation == 'create' %}
+        <h3>Create new task</h3>
+    {% else %}
+        <h3>{{ title }}</h3>
+    {% endif %}
+    <div class='content'>
+        <form method="POST" action=''>
+            {{ form.hidden_tag() }}
+            <div class="form-group">
+                <label class="label-info">
+                    {{ form.task_title.label(class="form-content-label") }}
+                </label>
+                <div class="field-box">
+                    {{ form.task_title(class="form-control") }}
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="label-info">
+                    {{ form.task_description.label(class="form-content-label") }}
+                </label>
+                <div class="field-box">
+                    {{ form.task_description(class="form-control") }}
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="field-box">
+                    {{ form.task_submit(class="btn btn-outline-info") }}
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock content %}
