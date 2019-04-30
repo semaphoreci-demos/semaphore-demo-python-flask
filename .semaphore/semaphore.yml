@@ -50,6 +50,6 @@ blocks:
           - docker ps
       - name: Run Unit test
         commands:
-          - docker exec -it semaphore-pyflask-docker_flasksemaphore_1 python -m unittest
+          - docker exec -it semaphore-demo-docker_flasksemaphore_1 python -m unittest
 
       
