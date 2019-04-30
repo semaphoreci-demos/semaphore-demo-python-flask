@@ -1,5 +1,5 @@
 # A Semaphore demo CI/CD pipeline using Docker based Python / Flask / MongoDB application 
- 
+
 Example of Docker based, Python Flask MongoDB application and CI/CD pipeline for integrating it with Semaphore 2.0. This application demonstrates CRUD operations using Flask and MongoDB as database. It also includes UI for all CRUD views.
 
 # Local project setup
