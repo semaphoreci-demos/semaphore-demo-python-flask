@@ -13,6 +13,7 @@ services:
       dockerfile: ./flask.Dockerfile
       cache_from:
         - vrt97/pyflasksemaphore
+      container_name: semaphore-pyflask-docker_flasksemaphore_1
     ports:
       - "5000:5000"
     volumes:
