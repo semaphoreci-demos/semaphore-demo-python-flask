@@ -1,0 +1,41 @@
+# .semaphore/deploy-heroku.yml
+
+version: v1.0
+name: Deploy to Heroku
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+blocks:
+  - name: Deploy to Heroku
+    task:
+      secrets:
+        # Make credentials available to jobs for MongoDB Atlas, 
+        # Docker Hub and Heroku.
+        # For info on creating secrets, see:
+        # https://docs.semaphoreci.com/article/66-environment-variables-and-secrets
+        - name: mongodb-atlas
+        - name: pyflask-semaphore
+        - name: heroku
+      # Define the Heroku application name
+      # For info on environment variables, see:
+      # https://docs.semaphoreci.com/article/66-environment-variables-and-secrets
+      env_vars:
+        - name: HEROKU_APP
+          value: YOUR_APP_NAME
+      jobs:
+        - name: Deploy
+          commands:
+            - checkout
+            # login to Docker Hub and pull the image
+            - echo "${DOCKER_PASSWORD}" | docker login -u "${DOCKER_USERNAME}" --password-stdin
+            - docker pull "$DOCKER_USERNAME"/pyflasksemaphore:$SEMAPHORE_WORKFLOW_ID
+            # push the image to Heroku registry
+            - heroku container:login
+            - docker tag "$DOCKER_USERNAME"/pyflasksemaphore:$SEMAPHORE_WORKFLOW_ID registry.heroku.com/$HEROKU_APP/web
+            - docker push registry.heroku.com/$HEROKU_APP/web
+            # define environment variable for MongoDB connection
+            - heroku config:set DB="$MONGODB_URI"
+            # release the app to production
+            - heroku stack:set container --app $HEROKU_APP
+            - heroku container:release web --app $HEROKU_APP
