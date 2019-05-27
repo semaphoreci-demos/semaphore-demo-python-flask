@@ -52,4 +52,9 @@ blocks:
         commands:
           - docker exec -it semaphore-pyflask-docker_flasksemaphore_1 python -m unittest
 
-      
+# Manual deployment to Heroku on successful builds on master branch:
+# For info on promotions, see:
+# https://docs.semaphoreci.com/article/50-pipeline-yaml#promotions
+promotions:
+  - name: Deploy to Heroku
+    pipeline_file: deploy-heroku.yml
