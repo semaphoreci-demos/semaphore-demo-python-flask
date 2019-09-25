@@ -1,10 +1,8 @@
 version: v1.0
 name: Semaphore Python / Flask / Docker Example Pipeline
 agent:
-  machine:
-    # Use a machine type with more RAM and CPU power for faster container
-    # builds:
-    type: e1-standard-4
+  machine:    
+    type: e1-standard-2
     os_image: ubuntu1804
 blocks:
   - name: Build
