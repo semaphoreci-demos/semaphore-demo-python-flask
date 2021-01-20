@@ -1,11 +1,11 @@
 version: '3.8'
 services:
   mongodb:
-    image: registry.semaphoreci.com/mongo:3.6
+    image: registry.semaphoreci.com/mongo:4.4
     container_name: "mongodb"
     ports:
       - 27017:27017
-    command: mongod --smallfiles --logpath=/dev/null # --quiet
+    command: mongod --logpath=/dev/null # --quiet
   flasksemaphore:
     image: pyflasksemaphore
     container_name: semaphore-pyflask-docker_flasksemaphore_1
