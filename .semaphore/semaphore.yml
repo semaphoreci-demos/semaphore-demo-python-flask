@@ -24,7 +24,6 @@ blocks:
           - docker tag pyflasksemaphore:latest "$DOCKER_USERNAME"/pyflasksemaphore:$SEMAPHORE_WORKFLOW_ID
           - docker push "$DOCKER_USERNAME"/pyflasksemaphore:latest
           - docker push "$DOCKER_USERNAME"/pyflasksemaphore:$SEMAPHORE_WORKFLOW_ID
-          - docker pull "$DOCKER_USERNAME"/pyflasksemaphore:$SEMAPHORE_WORKFLOW_ID
           - docker images
 
   - name: Run & Test Docker image

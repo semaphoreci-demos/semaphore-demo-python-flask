@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   mongodb:
-    image: registry.semaphoreci.com/mongo:3.6
+    image: mongo:3.6.21
     container_name: "mongodb"
     ports:
       - 27017:27017
@@ -11,7 +11,7 @@ services:
     container_name: semaphore-pyflask-docker_flasksemaphore_1
     build:
       context: .
-      dockerfile: ./flask.Dockerfile
+      dockerfile: ./flask.Dockerfile.development
     ports:
       - "5000:5000"
     volumes:
