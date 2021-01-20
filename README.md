@@ -1,10 +1,12 @@
-# A Semaphore demo CI/CD pipeline using Docker based Python / Flask / MongoDB application 
+# A Semaphore demo CI/CD pipeline using Docker based Python / Flask / MongoDB application
+
+[![Build Status](https://semaphore-demos.semaphoreci.com/badges/semaphore-demo-python-flask/branches/master.svg)](https://semaphore-demos.semaphoreci.com/projects/semaphore-demo-python-flask)
 
 Example of Docker based, Python Flask MongoDB application and CI/CD pipeline for integrating it with Semaphore 2.0. This application demonstrates CRUD operations using Flask and MongoDB as database. It also includes UI for all CRUD views.
 
 # Local project setup
 
-1. Fork this repository and clone into your local 
+1. Fork this repository and clone into your local
 
 2. Make sure, you have docker-compose and docker installed on your machine
 
@@ -13,7 +15,7 @@ Example of Docker based, Python Flask MongoDB application and CI/CD pipeline for
    docker-compose up
    ```
 4. That's all. Visit localhost:5000 from your browser, You'll see flask application           running.
-  
+
 # CI/CD on Semaphore
 
 Fork this repository and use it to [create a project](https://docs.semaphoreci.com/article/63-your-first-project)
